@@ -18,7 +18,7 @@ export default function CreateCharacter() {
         </button>
         <div className="w-full text-center">
           <h1 className="text-5xl font-extrabold drop-shadow-lg">
-            Criar Novo Personagem
+            Criar Nova Ficha
           </h1>
           <p className="text-xl mt-4 font-light">
             Preencha os campos abaixo para criar uma nova ficha.
@@ -176,9 +176,7 @@ export default function CreateCharacter() {
       </main>
 
       <footer className="absolute bottom-4 text-center text-sm">
-        <p>
-          Criado com ❤️ por <span className="font-bold">Vinícius</span>.
-        </p>
+        <p></p>
       </footer>
     </div>
   );
