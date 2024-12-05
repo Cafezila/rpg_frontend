@@ -37,7 +37,7 @@ export default function CreateCharacter() {
               id="name"
               name="name"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-              placeholder="Digite o nome do personagem"
+              placeholder="Digite o nome"
               required
             />
           </div>
@@ -51,7 +51,7 @@ export default function CreateCharacter() {
               id="raca"
               name="raca"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-              placeholder="Digite a raça do personagem"
+              placeholder="Digite a raça"
               required
             />
           </div>
@@ -68,7 +68,7 @@ export default function CreateCharacter() {
               id="classe"
               name="classe"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-              placeholder="Digite a classe do personagem"
+              placeholder="Digite a classe"
               required
             />
           </div>
@@ -82,7 +82,7 @@ export default function CreateCharacter() {
               id="nivel"
               name="nivel"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-              placeholder="Digite o nível do personagem"
+              placeholder="Digite o nível"
               required
             />
           </div>
@@ -99,7 +99,7 @@ export default function CreateCharacter() {
               id="status"
               name="status"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-              placeholder="Digite o status do personagem"
+              placeholder="Digite o status"
               required
             />
           </div>
@@ -116,7 +116,7 @@ export default function CreateCharacter() {
               id="habilidades"
               name="habilidades"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-              placeholder="Digite as habilidades do personagem"
+              placeholder="Digite as habilidades"
               required
             />
           </div>
@@ -133,7 +133,7 @@ export default function CreateCharacter() {
               id="modificador"
               name="modificador"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-              placeholder="Digite o modificador do personagem"
+              placeholder="Digite o modificador"
               required
             />
           </div>
@@ -147,7 +147,7 @@ export default function CreateCharacter() {
               id="itens"
               name="itens"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-              placeholder="Digite os itens do personagem"
+              placeholder="Digite os itens"
               required
             />
           </div>
@@ -161,7 +161,7 @@ export default function CreateCharacter() {
               id="danos"
               name="danos"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-              placeholder="Digite os danos do personagem"
+              placeholder="Digite os danos"
               required
             />
           </div>
@@ -170,7 +170,7 @@ export default function CreateCharacter() {
             type="submit"
             className="w-full bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition col-span-3"
           >
-            Criar Personagem
+            Criar Ficha
           </button>
         </form>
       </main>
