@@ -18,7 +18,7 @@ const CardsPage = () => {
   useEffect(() => {
     const fetchFichas = async () => {
       try {
-        const response = await fetch("http://localhost:3333/fichas");
+        const response = await fetch("http://localhost:3333/ficha");
         if (!response.ok) {
           throw new Error("Erro ao buscar fichas");
         }

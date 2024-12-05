@@ -7,7 +7,7 @@ import { useState } from "react";
 export default function CreateUser() {
   const router = useRouter();
   const [nome, setNome] = useState<string>("");
-  const [user_id, setUserId] = useState<string>("");
+  const [password, setUserId] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const handleGoBack = () => {
@@ -21,13 +21,11 @@ export default function CreateUser() {
 
     const newSession = {
       nome,
-      user_id,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
+      password,
     };
 
     try {
-      const response = await fetch("http://localhost:3333/sessions", {
+      const response = await fetch("http://localhost:3333/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -99,6 +97,7 @@ export default function CreateUser() {
               type="password"
               id="password"
               name="password"
+              value={password}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
               placeholder="Digite sua senha"
               required
@@ -117,7 +116,6 @@ export default function CreateUser() {
 
       <footer className="absolute bottom-4 text-center text-sm">
         <p>
-          Criado com ❤️ por <span className="font-bold">Vinícius</span>.
         </p>
       </footer>
     </div>
