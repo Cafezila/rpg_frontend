@@ -19,10 +19,15 @@ export default function Home() {
           href="#features"
           className="bg-white text-purple-700 px-6 py-3 rounded-lg shadow-md font-medium hover:bg-purple-100 transition"
         >
-          Descubra Funcionalidades
+          Fichas
+        </a>
+        <a
+          href="#features"
+          className="bg-white text-purple-700 px-6 py-3 rounded-lg shadow-md font-medium hover:bg-purple-100 transition"
+        >
+          Sessões
         </a>
       </main>
-
       <footer className="absolute bottom-4 text-center text-sm">
         <p>
           Gloriosa Evolução ❤️ <span className="font-bold">Gabriel L.</span>.
