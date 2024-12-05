@@ -16,7 +16,7 @@ const CardsPage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch("http://localhost:3333/users");
+        const response = await fetch("http://localhost:3333/fichas");
         if (!response.ok) {
           throw new Error("Erro ao buscar usuários");
         }
@@ -37,20 +37,40 @@ const CardsPage = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <a href="/fichas/form" className="text-blue-500 hover:underline">
-        Ir para o formulário de criação de usuário
+      <a
+        href="/fichas/form"
+        className="text-blue-500 hover:underline mb-4 block text-center"
+      >
+        Ir para o formulário de fichas
       </a>
-      <h1 className="text-2xl font-bold text-center mb-4">Usuários</h1>
-      <ul className="space-y-4">
-        {users.map((user) => (
-          <li
-            key={user.id}
-            className="p-4 border rounded shadow hover:bg-gray-100"
-          >
-            <p className="font-semibold">{user.name}</p>
-          </li>
-        ))}
-      </ul>
+
+      <h1 className="text-3xl font-bold text-center text-white mb-6">
+        Fichas de Personagens
+      </h1>
+
+      <div className="overflow-x-auto bg-white rounded-lg shadow-lg">
+        <table className="min-w-full text-sm text-left text-gray-500">
+          <thead className="text-xs text-gray-700 uppercase bg-purple-600">
+            <tr>
+              <th className="px-6 py-3">Nome</th>
+              <th className="px-6 py-3">Senha</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user) => (
+              <tr
+                key={user.id}
+                className="bg-gray-50 border-b hover:bg-gray-100"
+              >
+                <td className="px-6 py-4 font-medium text-purple-700">
+                  {user.name}
+                </td>
+                <td className="px-6 py-4 text-purple-700">{user.password}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
