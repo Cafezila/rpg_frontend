@@ -25,7 +25,6 @@ export default function CreateUser() {
           </p>
         </div>
       </header>
-
       <main className="flex flex-col items-center justify-center gap-6">
         <form className="bg-white text-purple-700 px-8 py-6 rounded-lg shadow-md max-w-sm w-full">
           <div className="mb-4">
