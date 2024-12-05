@@ -16,13 +16,13 @@ export default function Home() {
           Lista de Usuários
         </a>
         <a
-          href="#features"
+          href="/fichas"
           className="bg-white text-purple-700 px-6 py-3 rounded-lg shadow-md font-medium hover:bg-purple-100 transition"
         >
           Fichas
         </a>
         <a
-          href="#features"
+          href="/sessoes"
           className="bg-white text-purple-700 px-6 py-3 rounded-lg shadow-md font-medium hover:bg-purple-100 transition"
         >
           Sessões

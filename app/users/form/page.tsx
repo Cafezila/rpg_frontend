@@ -1,13 +1,29 @@
+"use client";
+
+import { IoArrowBackCircle } from "react-icons/io5";
+import { useRouter } from "next/navigation";
+
 export default function CreateUser() {
+  const router = useRouter(); // Hook para navegação
+
+  const handleGoBack = () => {
+    router.back(); // Volta para a página anterior
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-purple-500 to-indigo-600 flex flex-col items-center justify-center text-white">
-      <header className="text-center mb-8">
-        <h1 className="text-5xl font-extrabold drop-shadow-lg">
-          Criar Novo Usuário
-        </h1>
-        <p className="text-xl mt-4 font-light">
-          Preencha os campos abaixo para criar um novo usuário.
-        </p>
+      <header className="w-full flex items-center justify-between px-6 mb-8">
+        <button onClick={handleGoBack} className="text-white text-3xl">
+          <IoArrowBackCircle />
+        </button>
+        <div className="text-center flex-1">
+          <h1 className="text-5xl font-extrabold drop-shadow-lg">
+            Criar Novo Usuário
+          </h1>
+          <p className="text-xl mt-4 font-light">
+            Preencha os campos abaixo para criar um novo usuário.
+          </p>
+        </div>
       </header>
 
       <main className="flex flex-col items-center justify-center gap-6">
@@ -53,7 +69,9 @@ export default function CreateUser() {
       </main>
 
       <footer className="absolute bottom-4 text-center text-sm">
-        <p></p>
+        <p>
+          Criado com ❤️ por <span className="font-bold">Vinícius</span>.
+        </p>
       </footer>
     </div>
   );
