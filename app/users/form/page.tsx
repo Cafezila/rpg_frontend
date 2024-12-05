@@ -2,12 +2,52 @@
 
 import { IoArrowBackCircle } from "react-icons/io5";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function CreateUser() {
-  const router = useRouter(); // Hook para navegação
-
+  const router = useRouter();
+  const [nome, setNome] = useState<string>("");
+  const [user_id, setUserId] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
   const handleGoBack = () => {
     router.back(); // Volta para a página anterior
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    const newSession = {
+      nome,
+      user_id,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    };
+
+    try {
+      const response = await fetch("http://localhost:3333/sessions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newSession),
+      });
+
+      if (!response.ok) {
+        throw new Error("Erro ao criar sessão");
+      }
+
+      // Limpar campos após sucesso
+      setNome("");
+      setUserId("");
+      alert("Sessão criada com sucesso!");
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -26,7 +66,12 @@ export default function CreateUser() {
         </div>
       </header>
       <main className="flex flex-col items-center justify-center gap-6">
-        <form className="bg-white text-purple-700 px-8 py-6 rounded-lg shadow-md max-w-sm w-full">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white text-purple-700 px-8 py-6 rounded-lg shadow-md max-w-sm w-full"
+        >
+          {error && <p className="text-red-500 text-center">{error}</p>}
+
           <div className="mb-4">
             <label htmlFor="name" className="block text-lg font-semibold mb-2">
               Nome
@@ -35,6 +80,8 @@ export default function CreateUser() {
               type="text"
               id="name"
               name="name"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
               placeholder="Digite seu nome"
               required
@@ -59,10 +106,11 @@ export default function CreateUser() {
           </div>
 
           <button
+            disabled={loading}
             type="submit"
             className="w-full bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition"
           >
-            Criar Usuário
+            {loading ? "Criando..." : "Criar Sessão"}
           </button>
         </form>
       </main>
