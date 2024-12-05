@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export default function CreateUser() {
   const router = useRouter();
-  const [nome, setNome] = useState<string>("");
+  const [name, setNome] = useState<string>("");
   const [password, setUserId] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -20,7 +20,7 @@ export default function CreateUser() {
     setError(null);
 
     const newSession = {
-      nome,
+      name,
       password,
     };
 
@@ -78,7 +78,7 @@ export default function CreateUser() {
               type="text"
               id="name"
               name="name"
-              value={nome}
+              value={name}
               onChange={(e) => setNome(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
               placeholder="Digite seu nome"
@@ -115,8 +115,7 @@ export default function CreateUser() {
       </main>
 
       <footer className="absolute bottom-4 text-center text-sm">
-        <p>
-        </p>
+        <p></p>
       </footer>
     </div>
   );
