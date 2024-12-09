@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FiHome } from "react-icons/fi";
+import { FiHome, FiTrash } from "react-icons/fi";
 
 interface User {
   id: number;
@@ -37,6 +37,24 @@ export default function UsersPage() {
     fetchUsers();
   }, []);
 
+  const handleDelete = async (id: number) => {
+    if (!confirm("Tem certeza que deseja excluir este usuário?")) return;
+
+    try {
+      const response = await fetch(`http://localhost:3333/users/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error("Erro ao excluir usuário");
+      }
+
+      setUsers(users.filter((user) => user.id !== id));
+    } catch (err: any) {
+      setError(err.message);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-purple-50 p-8 font-poppins">
       <div className="flex justify-between items-center mb-6">
@@ -60,20 +78,41 @@ export default function UsersPage() {
       {loading && <p className="text-center text-gray-600">Carregando...</p>}
       {error && <p className="text-center text-red-500">{error}</p>}
 
-      {!loading && !error && (
-        <ul className="space-y-4">
-          {users.map((user) => (
-            <li
-              key={user.id}
-              className="bg-white shadow-lg rounded-lg p-4"
-            >
-              <div>
-                <h2 className="text-xl font-bold text-purple-800">{user.name}</h2>
-                <p className="text-sm text-gray-600">ID: {user.id}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+      {!loading && !error && users.length > 0 && (
+        <div className="overflow-x-auto">
+          <table className="w-full bg-white rounded-lg shadow-lg">
+            <thead className="bg-purple-600 text-white">
+              <tr>
+                <th className="text-left px-4 py-3 text-lg font-bold">ID</th>
+                <th className="text-left px-4 py-3 text-lg font-bold">Nome</th>
+                <th className="text-left px-4 py-3 text-lg font-bold">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user) => (
+                <tr
+                  key={user.id}
+                  className="border-b last:border-0 hover:bg-purple-50 transition"
+                >
+                  <td className="px-4 py-3 text-gray-700">{user.id}</td>
+                  <td className="px-4 py-3 text-gray-700">{user.name}</td>
+                  <td className="px-4 py-3">
+                    <button
+                      onClick={() => handleDelete(user.id)}
+                      className="text-red-600 hover:text-red-800 transition"
+                    >
+                      <FiTrash size={18} />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {!loading && !error && users.length === 0 && (
+        <p className="text-center text-gray-600">Nenhum usuário encontrado.</p>
       )}
     </div>
   );
