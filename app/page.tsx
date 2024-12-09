@@ -19,7 +19,7 @@ export default function Home() {
           href="/fichas"
           className="bg-white text-purple-700 px-6 py-3 rounded-lg shadow-md font-medium hover:bg-purple-100 transition"
         >
-          Fichas
+          Personagens
         </a>
         <a
           href="/sessoes"

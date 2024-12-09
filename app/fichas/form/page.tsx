@@ -18,10 +18,10 @@ export default function CreateCharacter() {
         </button>
         <div className="w-full text-center">
           <h1 className="text-5xl font-extrabold drop-shadow-lg">
-            Criar Nova Ficha
+            Criar Novo Personagem
           </h1>
           <p className="text-xl mt-4 font-light">
-            Preencha os campos abaixo para criar uma nova ficha.
+            Preencha os campos abaixo para criar um novo personagem.
           </p>
         </div>
       </header>
@@ -74,94 +74,36 @@ export default function CreateCharacter() {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="nivel" className="block text-lg font-semibold mb-2">
-              Nível
+            <label
+              htmlFor="pontos_de_vida"
+              className="block text-lg font-semibold mb-2"
+            >
+              Pontos de vida
             </label>
             <input
-              type="number"
-              id="nivel"
-              name="nivel"
+              type="text"
+              id="pontos_de_vida"
+              name="pontos_de_vida"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-              placeholder="Digite o nível"
+              placeholder="Digite os pontos de vida"
               required
             />
           </div>
+          
 
           <div className="mb-4">
             <label
               htmlFor="status"
               className="block text-lg font-semibold mb-2"
             >
-              Status
+              Session
             </label>
             <input
               type="text"
-              id="status"
-              name="status"
+              id="session_id"
+              name="session_id"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
               placeholder="Digite o status"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label
-              htmlFor="habilidades"
-              className="block text-lg font-semibold mb-2"
-            >
-              Habilidades
-            </label>
-            <input
-              type="text"
-              id="habilidades"
-              name="habilidades"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-              placeholder="Digite as habilidades"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label
-              htmlFor="modificador"
-              className="block text-lg font-semibold mb-2"
-            >
-              Modificador
-            </label>
-            <input
-              type="text"
-              id="modificador"
-              name="modificador"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-              placeholder="Digite o modificador"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label htmlFor="itens" className="block text-lg font-semibold mb-2">
-              Itens
-            </label>
-            <input
-              type="text"
-              id="itens"
-              name="itens"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-              placeholder="Digite os itens"
-              required
-            />
-          </div>
-
-          <div className="mb-6">
-            <label htmlFor="danos" className="block text-lg font-semibold mb-2">
-              Danos
-            </label>
-            <input
-              type="text"
-              id="danos"
-              name="danos"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-              placeholder="Digite os danos"
               required
             />
           </div>

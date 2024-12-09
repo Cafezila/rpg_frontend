@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { FiHome, FiPlusCircle } from "react-icons/fi";
 
 interface Character {
   id: string;
@@ -57,6 +58,23 @@ export default function SessionList() {
 
   return (
     <div className="min-h-screen bg-purple-50 p-8 font-poppins">
+      <div className="flex justify-between items-center mb-6">
+        <a
+          href="/"
+          className="text-purple-800 flex items-center space-x-2 text-lg hover:underline"
+        >
+          <FiHome size={20} />
+          <span>Home</span>
+        </a>
+        <a
+          href="/sessoes/form"
+          className="text-purple-800 flex items-center space-x-2 text-lg hover:underline"
+        >
+          <FiPlusCircle size={20} />
+          <span>Criar Sessão</span>
+        </a>
+      </div>
+
       <h1 className="text-3xl font-bold text-center mb-6 text-purple-900">Lista de Sessões</h1>
 
       {loading && <p className="text-center text-gray-600">Carregando...</p>}
